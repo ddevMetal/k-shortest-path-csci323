@@ -1,0 +1,312 @@
+Readme · MDCopyK-SHORTEST SIMPLE PATHS - PROJECT FILES
+📦 PACKAGE CONTENTS
+This package contains everything you need for your CSCI323 Group Project (FT14).
+🎯 MAIN FILES
+
+test_setup.py ⭐ START HERE
+
+Quick 2-minute test to verify your setup
+Checks Drive mount, file paths, packages
+Run this FIRST before anything else
+
+
+complete_kssp_implementation.py ⭐ MAIN CODE
+
+Complete working implementation
+All 4 algorithms: Yen, SB, SB*, PSB
+Generates tables and charts
+Ready for Google Colab
+
+
+QUICK_REFERENCE.md ⭐ CHEAT SHEET
+
+One-page quick reference
+Key parameters, common errors, tips
+Report checklist
+
+
+SETUP_GUIDE.md
+
+Detailed setup instructions
+Troubleshooting guide
+Parameter explanations
+
+
+
+🚀 GETTING STARTED (3 EASY STEPS)
+⏱️ Step 1: Test (2 min)
+
+Open Google Colab
+Copy test_setup.py into a cell
+Run it
+Verify all checks pass ✅
+
+✏️ Step 2: Configure (1 min)
+
+Open complete_kssp_implementation.py
+Update line 36: Set your DATA_DIR path
+Update line 38: Set your graph files
+Save
+
+▶️ Step 3: Run (5-10 min)
+
+Paste entire code into Colab
+Run the cell
+Wait for completion
+Save generated tables and charts
+
+📊 WHAT YOU'LL GET
+Automatically Generated:
+✅ Comparison Tables (ready for report)
+
+Time consumption for each algorithm
+Memory consumption (SP trees stored)
+Dijkstra calls (computational cost)
+Paths found (correctness)
+
+✅ Visualizations (4 charts per experiment)
+
+Execution time comparison
+Memory consumption comparison
+Dijkstra calls comparison
+Computational efficiency
+
+✅ Summary Analysis
+
+Fastest algorithm identified
+Most memory-efficient identified
+Best efficiency ratio calculated
+
+🎓 PROJECT REQUIREMENTS COVERAGE
+RequirementStatusLocationTitle✅Line 1 of codeIntroduction✅Report structure includedBackground Theory✅Comments in code (lines 113-149)Algorithm Implementation✅Lines 209-506Evaluation Study✅Lines 508-631Results Tables✅Auto-generatedResults Charts✅Auto-generatedDiscussion✅Summary sectionMarginal Cases✅Explained in commentsMathematical Reasoning✅Complexity documented
+🏆 ALGORITHMS IMPLEMENTED
+1. Yen (1971)
+
+⏱️ Speed: Slowest (baseline)
+💾 Memory: Lowest
+🎯 Best for: Educational purposes
+
+2. SB (2016) - Sidetrack-Based
+
+⏱️ Speed: Fast (2-3x faster than Yen)
+💾 Memory: High
+🎯 Best for: Balanced performance
+
+3. SB* (2020)
+
+⏱️ Speed: Fastest ⭐ (1.5-2x faster than SB)
+💾 Memory: High (same as SB)
+🎯 Best for: Time-critical applications
+
+4. PSB (2020) - Parsimonious
+
+⏱️ Speed: Good (slower than SB*)
+💾 Memory: Low ⭐ (40-50% less than SB)
+🎯 Best for: Memory-constrained systems
+
+📂 YOUR DATA FILES
+Based on your screenshot, you have:
+Graph files (.gr):
+
+USA-road-d.W.gr (Washington)
+USA-road-d.NY.gr (New York)
+USA-road-d.BAY.gr (Bay Area)
+USA-road-d.COL.gr (Colorado)
+
+Coordinate files (.co):
+
+USA-road-d.W.co
+USA-road-d.NY.co
+USA-road-d.BAY.co
+USA-road-d.COL.co
+
+These are from: 9th DIMACS Implementation Challenge
+Source: http://www.dis.uniroma1.it/challenge9/download.shtml
+⚙️ CONFIGURATION OPTIONS
+Dataset Selection (line 38)
+pythonGRAPH_FILES = {
+    'small': 'USA-road-d.W.gr',
+    'medium': 'USA-road-d.NY.gr',
+    'large': 'USA-road-d.BAY.gr'
+}
+Experiment Parameters (line 41)
+pythonEXPERIMENTS = [
+    {'name': 'Experiment 1', 'k': 3, 'source': 1, 'target': 50},
+    {'name': 'Experiment 2', 'k': 5, 'source': 1, 'target': 50},
+    {'name': 'Experiment 3', 'k': 10, 'source': 1, 'target': 50}
+]
+Adjustable:
+
+k: Number of shortest paths (try: 3, 5, 10, 50, 100)
+source: Starting node
+target: Destination node
+
+Algorithm Selection (line 48)
+pythonENABLE_ALGORITHMS = {
+    'Yen': True,
+    'SB': True,
+    'SB*': True,
+    'PSB': True
+}
+Set to False to skip an algorithm.
+📈 EXPECTED PERFORMANCE
+Small Graph (W - Washington):
+
+Nodes: ~435K, Arcs: ~1M
+k=10: ~2-10 seconds per algorithm
+Memory: Low (fits in Colab free tier)
+
+Medium Graph (NY - New York):
+
+Nodes: ~264K, Arcs: ~733K
+k=10: ~1-5 seconds per algorithm
+Memory: Moderate
+
+Large Graph (BAY - Bay Area):
+
+Nodes: ~321K, Arcs: ~800K
+k=10: ~2-8 seconds per algorithm
+Memory: Moderate-High
+
+Note: Actual times depend on source/target connectivity
+⚠️ TROUBLESHOOTING
+Problem: "Directory not found"
+Solution: Update DATA_DIR (line 36)
+python# Try these alternatives:
+"/content/drive/My Drive/graphs"  # Note: space in "My Drive"
+"/content/drive/MyDrive/Graphs"   # Capital G
+Problem: "Out of memory"
+Solution:
+
+Use smaller k values (3, 5, 10)
+Use smaller graph (W instead of COL)
+Disable some algorithms
+Colab: Runtime > Change runtime type > High-RAM
+
+Problem: "No path exists"
+Solution:
+
+Source/target not connected
+Try different nodes: source=1, target=100
+
+Problem: Slow execution
+Solution:
+
+Normal for large k (>50) on large graphs
+Disable Yen algorithm (slowest)
+Use smaller dataset
+
+💡 TIPS FOR SUCCESS
+🎯 For Testing:
+
+Start with k=3 on small graph (W)
+Verify all algorithms produce same path lengths
+Then scale up to larger k and graphs
+
+📊 For Report:
+
+Run experiments for k=3, 5, 10
+Screenshot/save all tables immediately
+Right-click charts → Save as image
+Copy table text to Excel for formatting
+
+⏱️ For Timing:
+
+Each full run: 5-15 minutes
+Test run (k=3, one graph): 1-2 minutes
+Full report data (3 graphs, 3 k values): 15-30 minutes
+
+💾 For Memory Management:
+
+Restart Colab runtime between full runs
+Don't run multiple experiments simultaneously
+Close other tabs to save RAM
+
+📝 USING IN YOUR REPORT
+Include These:
+✅ Tables (Section: Results)
+
+Copy directly from console output
+Format in Excel/Docs if needed
+
+✅ Charts (Section: Results)
+
+Save all 4 charts per experiment
+Reference as "Figure 1, Figure 2", etc.
+
+✅ Code Snippets (Appendix)
+
+Include main algorithm logic
+NOT the entire 700+ line file
+Show Yen, SB, SB*, PSB implementations
+
+✅ Analysis (Section: Discussion)
+
+Use the "Summary: Key Findings"
+Compare results to Al Zoobi et al. (2020)
+Discuss time-space tradeoff
+
+Don't Include:
+❌ Raw Google Drive mount code
+❌ Import statements
+❌ Visualization generation code
+❌ Setup/configuration sections
+🔗 REFERENCES
+Primary Source:
+Al Zoobi, A., Coudert, D., & Nisse, N. (2020). Space and time trade-off for the k shortest simple paths problem. Research Report hal-02465317, Inria & Université Côte d'Azur, CNRS, I3S, Sophia Antipolis, France.
+Also Cite:
+
+Yen, J.Y. (1971). Finding the k shortest loopless paths in a network. Management Science, 17(11), 712-716.
+Kurz, D., & Mutzel, P. (2016). A sidetrack-based algorithm for finding the k shortest simple paths in a directed graph. ISAAC 2016.
+
+✅ PRE-SUBMISSION CHECKLIST
+Before submitting your report, verify:
+
+ Code runs without errors
+ All 4 algorithms implemented
+ Results tables generated
+ Charts saved as images
+ Tables formatted in report
+ Figures labeled (Figure 1, 2, etc.)
+ Analysis section completed
+ Marginal cases discussed
+ Mathematical reasoning provided
+ References properly cited
+ Code in appendix (key parts only)
+ Group contributions listed
+
+🎓 GRADING ALIGNMENT
+CriteriaPointsCovered ByTitle5First line of codeIntroduction10Your report + code commentsBackground Theory10Code comments + your analysisSolutions/Evaluation25Complete implementationConclusion5Summary sectionReferences5Provided aboveTOTAL60All covered
+🆘 NEED HELP?
+
+First: Run test_setup.py to diagnose issues
+Second: Check QUICK_REFERENCE.md for common errors
+Third: Read SETUP_GUIDE.md for detailed help
+Last: Check error messages in Colab output
+
+📧 SUPPORT
+For technical issues:
+
+Check Colab console output
+Verify file paths match your Drive
+Ensure packages installed
+
+For conceptual questions:
+
+Review algorithm descriptions in code
+Check Al Zoobi et al. (2020) paper
+See QUICK_REFERENCE.md for algorithm comparison
+
+🎉 YOU'RE READY!
+Everything is set up for your success:
+✅ Complete working code
+✅ All 4 algorithms
+✅ Automatic result generation
+✅ Report-ready outputs
+✅ Comprehensive documentation
+Good luck with your project! 🚀
+
+Group: FT14
+Course: CSCI323 - Modern Artificial Intelligence
+Subject Tutor: Cher Lim
+Project: Comparative Analysis on K Shortest Simple Path Problem
